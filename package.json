@@ -1,0 +1,8 @@
+{
+  "name": "flow-import-bug",
+  "version": "1.0.0",
+  "description": "Displays a bug where flow improperly type checks imported types",
+  "main": "index.js",
+  "author": "James Kraus <jkraus@imagineteam.com>",
+  "license": "MIT"
+}
