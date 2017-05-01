@@ -4,5 +4,11 @@
   "description": "Displays a bug where flow improperly type checks imported types",
   "main": "index.js",
   "author": "James Kraus <jkraus@imagineteam.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "flow-bin": "^0.45.0"
+  },
+  "scripts": {
+    "flow": "flow"
+  }
 }
