@@ -1,25 +1,20 @@
 //@flow
 
-const myTrue: 'TrUe' = 'TrUe';
-const myFalse: 'FalZe' = 'FalZe';
+const myTrue: 'myTrue' = 'myTrue';
+const myFalse: 'myFalse' = 'myFalse';
 
-type FirstGeneric<T> = {|
-  a: T,
-|}
-
-type SecondGeneric<T> = {|
-  value: FirstGeneric<T>,
-  error: ?string,
+type Generic<T> = {|
+  value: T,
 |}
 
 type MaybeWithExtraData<T> = {|
-  ...SecondGeneric<T>,
+  ...Generic<T>,
   hasExtraData: typeof myTrue,
   extraData: string,
 |}
 
 type MaybeWithoutExtraData<T> = {|
-  ...SecondGeneric<T>,
+  ...Generic<T>,
   hasExtraData: typeof myFalse,
 |}
 
@@ -27,15 +22,13 @@ type MaybeExtraData<T> = MaybeWithExtraData<T> | MaybeWithoutExtraData<T>
 
 // Should be fine
 const WithExtraData: MaybeExtraData<number> = {
-  value: {a: 123},
-  error: null,
+  value: 123,
   hasExtraData: myTrue,
   extraData: 'Happy!',
 }
 
 // Should be fine
 const WithoutExtraData: MaybeExtraData<number> = {
-  value: {a: 123},
-  error: null,
+  value: 123,
   hasExtraData: myFalse,
 }
